@@ -1,0 +1,44 @@
+
+Provide methods to manipulate the DOM
+
+We already have a browser api to manipulate the DOM, but it is limited. This library builds upon that api.
+We identify common or interesting DOM manipulations and provide a function to achieve them.
+
+
+We can start by building our own 'virual dom' a la React. 
+
+The way we would do this is to traverse the dom and to add each element to a data structure.
+
+This data strcutre would be a tree.
+				
+					HTML
+					/  \
+				       /    \
+				    body     head
+				  /  |  \       |  \
+			  header  main footer   title meta
+
+
+		etc. 
+
+How would we store a tree,
+
+each node has children, this isnt a binaray tree in that 
+
+The best way would be to follow what the DOM aleady implements, and that is to have a HTMLCollection of the connected child nodes, then a sibling nodes list - you cannot check all the siblings of a node - only the next and previous sibling.
+Is there some significance to the order?
+Yes, the order is the order they appear in the document.
+
+1. Set up a simple static site and add some DOM to it through html
+2. Set up a server on express to serve the website.
+3. Set up some javascript to interact with the DOM.
+(try to do this all from nvim)
+
+
+1. set up self cert-authority https://deliciousbrains.com/ssl-certificate-authority-for-local-https-development/
+2. first generate a key: openssl genrsa -des3 -out myCA.key 2048
+3. Generatge a root certificate: 
+openssl req -x509 -new -nodes -key myCA.key -sha256 -days 1825 -out myCA.pem
+4. Give it a password that you keep safe
+5. 
+					
